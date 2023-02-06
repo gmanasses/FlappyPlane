@@ -21,6 +21,7 @@ public class PlaneController : MonoBehaviour {
 
     // --- Functions ---
     private void Ascend() {
+        this._physics.velocity = Vector2.zero;
         this._physics.AddForce(Vector2.up * _forceMultiplier, ForceMode2D.Impulse);
     }
 
