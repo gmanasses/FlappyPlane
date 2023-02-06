@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlaneController : MonoBehaviour {
 
     // --- private declarations ---
-    private float _forceMultiplier = 6.75f;
+    [SerializeField] private float _forceMultiplier = 6.75f;
     private Rigidbody2D _physics;
 
 

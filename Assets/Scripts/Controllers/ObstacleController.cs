@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour {
 
     // --- private declarations ---
-    private int _speedReduction = 125;
+    [SerializeField] private int _speedReduction = 125;
 
 
     // --- Core Functions ---
