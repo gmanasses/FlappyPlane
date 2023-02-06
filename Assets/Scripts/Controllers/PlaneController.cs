@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class PlaneController : MonoBehaviour {
+
+    // --- private declarations ---
+    private float _forceMultiplier = 6.75f;
+    private Rigidbody2D _physics;
+
+
+    // --- Core Functions ---
+    private void Awake() {
+        this._physics = this.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update() {
+        if(Input.GetButtonDown("Fire1")) {
+            this.Ascend();
+        }
     }
+
+
+    // --- Functions ---
+    private void Ascend() {
+        this._physics.AddForce(Vector2.up * _forceMultiplier, ForceMode2D.Impulse);
+    }
+
 }
