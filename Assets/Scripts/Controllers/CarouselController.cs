@@ -10,7 +10,7 @@ public class CarouselController : MonoBehaviour {
 
     // --- Core Functions ---
     private void Awake() {
-        this._initialPosition = this.transform.position;
+        _initialPosition = transform.position;
 
         float imageSize = this.GetComponent<SpriteRenderer>().size.x;
         float scale = this.transform.localScale.x;
@@ -18,8 +18,8 @@ public class CarouselController : MonoBehaviour {
     }
 
     private void Update() {
-        float imageShift = Mathf.Repeat(this._speed * Time.time, _realImageSize);
-        this.transform.position = this._initialPosition + (Vector3.left * imageShift);
+        float imageShift = Mathf.Repeat(_speed * Time.time, _realImageSize);
+        transform.position = _initialPosition + (Vector3.left * imageShift);
     }
 
 }

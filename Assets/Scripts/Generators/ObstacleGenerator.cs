@@ -10,14 +10,14 @@ public class ObstacleGenerator : MonoBehaviour {
 
     // --- Core Functions ---
     private void Awake() {
-        this._chronometer = this._generationTime;
+        _chronometer = _generationTime;
     }
 
     private void Update() {        
-        this._chronometer -= Time.deltaTime;
-        if(this._chronometer < 0) {
+        _chronometer -= Time.deltaTime;
+        if(_chronometer < 0) {
             GameObject.Instantiate(_obstaclePrefab, this.transform.position, Quaternion.identity);
-            this._chronometer = this._generationTime;
+            _chronometer = _generationTime;
         }
     }
 

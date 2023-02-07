@@ -13,11 +13,17 @@ public class ObstacleController : MonoBehaviour {
     }
 
     private void Update() {
-        this.transform.Translate(Vector3.left * this._speed * Time.deltaTime);
+        this.transform.Translate(Vector3.left * _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        GameObject.Destroy(this.gameObject);
+        DestroyObstacle();
+    }
+
+
+    // --- Functions ---
+    public void DestroyObstacle() {
+        Destroy(this.gameObject);
     }
 
 }
