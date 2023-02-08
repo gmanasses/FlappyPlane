@@ -6,6 +6,7 @@ public class ScoreController : MonoBehaviour {
     // --- Private Declarations ---
     [SerializeField] private Text _scoreText;
     private AudioSource _scoreSound;
+    private InterfaceController _interfaceController;
     private int _score;
 
 
@@ -15,21 +16,28 @@ public class ScoreController : MonoBehaviour {
         _score = 0;
     }
 
+    private void Start() {
+        _interfaceController = GameObject.FindObjectOfType<InterfaceController>();
+    }
+
 
     // --- Functions ---
     public void AddScore() {
         _scoreSound.Play();
         _score++;
-        UpdateUI();
+        _interfaceController.UpdateScore(_score);
     }
 
     public void RestartScore() {
         _score = 0;
-        UpdateUI();
+        _interfaceController.UpdateScore(_score);
     }
 
-    private void UpdateUI() {
-        _scoreText.text = _score.ToString();
+    public void SaveRecordScore() {
+        int oldRecord = PlayerPrefs.GetInt("record");
+        if (oldRecord < _score) {
+            PlayerPrefs.SetInt("record", _score);
+        }
     }
 
 }

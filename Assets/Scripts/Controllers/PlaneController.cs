@@ -7,6 +7,7 @@ public class PlaneController : MonoBehaviour {
     private Rigidbody2D _physics;
     private SceneManager _sceneManager;
     private Vector3 _initialPosition;
+    private bool _shouldAscend;
 
 
     // --- Core Functions ---
@@ -21,6 +22,12 @@ public class PlaneController : MonoBehaviour {
 
     private void Update() {
         if(Input.GetButtonDown("Fire1")) {
+            _shouldAscend = true;
+        }
+    }
+
+    private void FixedUpdate() {
+        if(_shouldAscend) {
             Ascend();
         }
     }
@@ -35,6 +42,7 @@ public class PlaneController : MonoBehaviour {
     private void Ascend() {
         _physics.velocity = Vector2.zero;
         _physics.AddForce(Vector2.up * _forceMultiplier, ForceMode2D.Impulse);
+        _shouldAscend = false;
     }
 
     public void RestartPosition() {
