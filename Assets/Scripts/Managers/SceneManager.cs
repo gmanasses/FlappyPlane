@@ -5,11 +5,13 @@ public class SceneManager : MonoBehaviour {
     // --- Private Declarations ---
     [SerializeField] private GameObject _gameOverScreen;
     private PlaneController _planeController;
+    private ScoreController _scoreController;
 
 
     // --- Core Functions ---
     private void Start() {
         _planeController = GameObject.FindObjectOfType<PlaneController>();
+        _scoreController = GameObject.FindObjectOfType<ScoreController>();
     }
 
 
@@ -31,6 +33,9 @@ public class SceneManager : MonoBehaviour {
 
         //restart plane position
         _planeController.RestartPosition();
+
+        //restart score
+        _scoreController.RestartScore();
 
         //destroy remaining obstacles
         DestroyAllObstacles();
