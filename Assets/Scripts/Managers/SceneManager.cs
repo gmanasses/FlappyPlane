@@ -4,6 +4,7 @@ public class SceneManager : MonoBehaviour {
 
     // --- Private Declarations ---    
     private InterfaceController _interfaceController;
+    private DifficultyManager _difficultyManager;
     private PlaneController _planeController;
     private ScoreController _scoreController;
 
@@ -11,6 +12,7 @@ public class SceneManager : MonoBehaviour {
     // --- Core Functions ---
     private void Start() {
         _interfaceController = GameObject.FindObjectOfType<InterfaceController>();
+        _difficultyManager = GameObject.FindObjectOfType<DifficultyManager>();
         _planeController = GameObject.FindObjectOfType<PlaneController>();
         _scoreController = GameObject.FindObjectOfType<ScoreController>();
     }
@@ -43,6 +45,9 @@ public class SceneManager : MonoBehaviour {
 
         //restart score
         _scoreController.RestartScore();
+
+        //restart difficulty
+        _difficultyManager.RestartDifficulty();
 
         //destroy remaining obstacles
         DestroyAllObstacles();

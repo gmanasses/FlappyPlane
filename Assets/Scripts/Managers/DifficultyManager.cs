@@ -18,4 +18,8 @@ public class DifficultyManager : MonoBehaviour {
         Difficulty = Mathf.Min(1, Difficulty);
     }
 
+    public void RestartDifficulty() {
+        _elapsedTime = 0;
+    }
+
 }
