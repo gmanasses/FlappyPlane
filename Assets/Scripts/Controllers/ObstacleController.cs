@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private int _speed = 5;
+    [SerializeField] private SharedVariablesFloat _speed;
     [SerializeField] private float _yPositionVariation;
     private ScoreController _scoreController;
     private Vector3 _planePosition;
@@ -22,7 +22,7 @@ public class ObstacleController : MonoBehaviour {
     }
 
     private void Update() {
-        this.transform.Translate(Vector3.left * _speed * Time.deltaTime);
+        this.transform.Translate(Vector3.left * _speed.value * Time.deltaTime);
 
         checksIfScored();        
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class CarouselController : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private float _speed = 5;
+    [SerializeField] private SharedVariablesFloat _speed;
     private Vector3 _initialPosition;
     private float _realImageSize;
 
@@ -18,7 +18,7 @@ public class CarouselController : MonoBehaviour {
     }
 
     private void Update() {
-        float imageShift = Mathf.Repeat(_speed * Time.time, _realImageSize);
+        float imageShift = Mathf.Repeat(_speed.value * Time.time, _realImageSize);
         transform.position = _initialPosition + (Vector3.left * imageShift);
     }
 

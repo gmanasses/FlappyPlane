@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20948e4755a2934eb7ef938350b96fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: {fileID: 11400000, guid: aab90171e2ec21749960ec6458553806, type: 2}
   _yPositionVariation: 1.2
 --- !u!1 &1843192445217600489
 GameObject:
