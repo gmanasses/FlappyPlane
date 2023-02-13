@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlaneController : MonoBehaviour {
 
     // --- Private Declarations ---
+    [SerializeField] private UnityEvent _whenPlaneCollides;
     [SerializeField] private float _forceMultiplier;
     private Animator _planeAnimator;
     private Rigidbody2D _physics;
-    private SceneManager _sceneManager;
     private Vector3 _initialPosition;
     private bool _shouldAscend;
 
@@ -16,10 +17,6 @@ public class PlaneController : MonoBehaviour {
         _initialPosition = transform.position;
         _physics = this.GetComponent<Rigidbody2D>();
         _planeAnimator = this.GetComponent<Animator>();
-    }
-
-    private void Start() {
-        _sceneManager = GameObject.FindObjectOfType<SceneManager>();
     }
 
     private void Update() {
@@ -34,7 +31,7 @@ public class PlaneController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         _physics.simulated = false;
-        _sceneManager.GameOver();
+        _whenPlaneCollides.Invoke();
     }
 
 
@@ -50,6 +47,7 @@ public class PlaneController : MonoBehaviour {
         transform.rotation = Quaternion.identity;
         transform.position = _initialPosition;
     }
+
 
     public void BoostPlane() {
         _shouldAscend = true;

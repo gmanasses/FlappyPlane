@@ -638,6 +638,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6357c19224d32104baf131947354b123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _whenPlaneCollides:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167299976}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _forceMultiplier: 4.2
 --- !u!58 &557754728
 CircleCollider2D:
@@ -761,6 +776,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: 264
+  _whenPressingKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 557754727}
+        m_TargetAssemblyTypeName: PlaneController, Assembly-CSharp
+        m_MethodName: BoostPlane
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &572200371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6055,6 +6085,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6357c19224d32104baf131947354b123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _whenPlaneCollides:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167299976}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _forceMultiplier: 4.2
 --- !u!95 &861344442
 Animator:
@@ -6089,6 +6134,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: 119
+  _whenPressingKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 861344441}
+        m_TargetAssemblyTypeName: PlaneController, Assembly-CSharp
+        m_MethodName: BoostPlane
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1043184926
 GameObject:
   m_ObjectHideFlags: 0
