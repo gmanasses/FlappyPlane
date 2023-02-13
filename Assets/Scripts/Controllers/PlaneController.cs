@@ -23,10 +23,6 @@ public class PlaneController : MonoBehaviour {
     }
 
     private void Update() {
-        if(Input.GetButtonDown("Fire1")) {
-            _shouldAscend = true;
-        }
-
         _planeAnimator.SetFloat("PlaneVelocityY", _physics.velocity.y);
     }
 
@@ -53,6 +49,10 @@ public class PlaneController : MonoBehaviour {
         _physics.simulated = true;
         transform.rotation = Quaternion.identity;
         transform.position = _initialPosition;
+    }
+
+    public void BoostPlane() {
+        _shouldAscend = true;
     }
 
 }
