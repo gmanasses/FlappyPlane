@@ -4,6 +4,7 @@ public class PlaneController : MonoBehaviour {
 
     // --- Private Declarations ---
     [SerializeField] private float _forceMultiplier;
+    private Animator _planeAnimator;
     private Rigidbody2D _physics;
     private SceneManager _sceneManager;
     private Vector3 _initialPosition;
@@ -14,6 +15,7 @@ public class PlaneController : MonoBehaviour {
     private void Awake() {
         _initialPosition = transform.position;
         _physics = this.GetComponent<Rigidbody2D>();
+        _planeAnimator = this.GetComponent<Animator>();
     }
 
     private void Start() {
@@ -24,6 +26,8 @@ public class PlaneController : MonoBehaviour {
         if(Input.GetButtonDown("Fire1")) {
             _shouldAscend = true;
         }
+
+        _planeAnimator.SetFloat("PlaneVelocityY", _physics.velocity.y);
     }
 
     private void FixedUpdate() {
