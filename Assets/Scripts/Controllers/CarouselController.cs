@@ -18,7 +18,7 @@ public class CarouselController : MonoBehaviour {
     }
 
     private void Update() {
-        float imageShift = Mathf.Repeat(_speed.value * Time.time, _realImageSize);
+        float imageShift = Mathf.Repeat(_speed.value * Time.time, _realImageSize/2);
         transform.position = _initialPosition + (Vector3.left * imageShift);
     }
 
