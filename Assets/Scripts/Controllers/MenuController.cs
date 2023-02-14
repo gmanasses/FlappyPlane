@@ -6,26 +6,19 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private Button _singlePlayerButton, _coopButton, _settingsButton;
     [SerializeField] private GameObject _mainScreen, _loadingScreen;
     [SerializeField] private Slider _loadingSlider;
     [SerializeField] private Text _loadingProgressText;
-
-
-    // --- Core Functions ---
-    private void Start() {
-        //Vector3 buttonPosition = Camera.main.ScreenToWorldPoint(_settingsButton.transform.position);
-    }
+    [SerializeField] private GameObject _plane;
 
 
     // --- Functions ---
     public void LoadLevel(int SceneIndex) {
         StartCoroutine(LoadAsyncScene(SceneIndex));
-
     }
 
     public IEnumerator LoadAsyncScene(int SceneIndex) {
-        AsyncOperation operation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
 
         ShowLoadingScreen();
 
@@ -42,6 +35,16 @@ public class MenuController : MonoBehaviour {
     private void ShowLoadingScreen() {
         _mainScreen.SetActive(false);
         _loadingScreen.SetActive(true);
+    }
+
+    public void PutPlaneOnButton(Button button) {
+
+        Vector3 planePosition = Vector3.zero;
+        planePosition.x = _plane.transform.position.x;
+        planePosition.y = button.gameObject.transform.position.y;
+        print(planePosition);
+
+        _plane.transform.SetPositionAndRotation(planePosition, Quaternion.identity);
     }
 
 }

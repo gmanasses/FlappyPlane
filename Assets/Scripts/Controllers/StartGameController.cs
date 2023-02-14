@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CoopStartGameController : MonoBehaviour {
+public class StartGameController : MonoBehaviour {
 
     // --- Private Declarations ---
     [SerializeField] private UnityEvent _whenAnimationOver;
