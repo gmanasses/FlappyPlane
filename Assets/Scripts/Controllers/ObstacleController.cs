@@ -17,7 +17,9 @@ public class ObstacleController : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        DestroyObstacle();
+        if(other.CompareTag("Obstacle Destroyer")) { 
+            DestroyObstacle();
+        }
     }
 
 

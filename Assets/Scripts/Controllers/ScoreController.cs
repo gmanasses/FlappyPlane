@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour {
@@ -8,6 +9,7 @@ public class ScoreController : MonoBehaviour {
 
     // --- Private Declarations ---
     [SerializeField] private Text _scoreText;
+    [SerializeField] private UnityEvent _whenScoring;
     private AudioSource _scoreSound;
     private InterfaceController _interfaceController;
 
@@ -26,8 +28,12 @@ public class ScoreController : MonoBehaviour {
     // --- Functions ---
     public void AddScore() {
         Score++;
+
         _scoreSound.Play();
+
         _interfaceController.UpdateScore(Score);
+
+        _whenScoring.Invoke();
     }
 
     public void RestartScore() {

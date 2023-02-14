@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 324692944}
   m_Layer: 0
   m_Name: Obstacle Destroyer
-  m_TagString: Untagged
+  m_TagString: Obstacle Destroyer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,9 +642,21 @@ MonoBehaviour:
   _whenPlaneCollides:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 661345887}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DisablePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1167299976}
-        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: GameOver
+        m_TargetAssemblyTypeName: CoopManager, Assembly-CSharp
+        m_MethodName: SomePlayerDied
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -987,7 +999,7 @@ GameObject:
   - component: {fileID: 591428301}
   m_Layer: 0
   m_Name: Obstacle Destroyer
-  m_TagString: Untagged
+  m_TagString: Obstacle Destroyer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,7 +1080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.065862}
+  m_AnchoredPosition: {x: 0, y: -0.06585693}
   m_SizeDelta: {x: 0, y: -624.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606619233
@@ -1118,6 +1130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661345886}
+  - component: {fileID: 661345887}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -1144,6 +1157,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661345887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661345885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e22bd4e091387c4dbb46f384c0ccbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &744773733
 GameObject:
   m_ObjectHideFlags: 0
@@ -6267,9 +6292,21 @@ MonoBehaviour:
   _whenPlaneCollides:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2134700291}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DisablePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1167299976}
-        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: GameOver
+        m_TargetAssemblyTypeName: CoopManager, Assembly-CSharp
+        m_MethodName: SomePlayerDied
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6608,9 +6645,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1167299974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c89048593a0ef9469a6eeeae1f6abcf, type: 3}
+  m_Script: {fileID: 11500000, guid: cddcb720c28e0f54085dcfd477c29a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreToRevive: 2
 --- !u!1 &1234290938
 GameObject:
   m_ObjectHideFlags: 0
@@ -12599,7 +12637,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1167299976}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -12811,6 +12849,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1476450126}
+  _whenScoring:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167299976}
+        m_TargetAssemblyTypeName: CoopManager, Assembly-CSharp
+        m_MethodName: TryToRevivePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &2083355960
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13043,6 +13096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134700290}
+  - component: {fileID: 2134700291}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -13069,6 +13123,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2134700291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134700289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e22bd4e091387c4dbb46f384c0ccbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143090448
 GameObject:
   m_ObjectHideFlags: 0

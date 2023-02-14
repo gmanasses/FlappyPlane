@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour {
+public class SinglePlayerManager : MonoBehaviour {
 
     // --- Private Declarations ---    
     private InterfaceController _interfaceController;
@@ -10,7 +10,7 @@ public class SceneManager : MonoBehaviour {
 
 
     // --- Core Functions ---
-    private void Start() {
+    protected virtual void Start() {
         _interfaceController = GameObject.FindObjectOfType<InterfaceController>();
         _difficultyManager = GameObject.FindObjectOfType<DifficultyManager>();
         _planeController = GameObject.FindObjectOfType<PlaneController>();
