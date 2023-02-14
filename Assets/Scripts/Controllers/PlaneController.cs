@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class PlaneController : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private UnityEvent _whenPlaneCollides;
+    [SerializeField] private UnityEvent _whenPlaneCollides, _whenPlaneScores;
     [SerializeField] private float _forceMultiplier;
     private Animator _planeAnimator;
     private Rigidbody2D _physics;
@@ -32,6 +32,10 @@ public class PlaneController : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         _physics.simulated = false;
         _whenPlaneCollides.Invoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        _whenPlaneScores.Invoke();
     }
 
 
