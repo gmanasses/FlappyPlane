@@ -33,7 +33,7 @@ public class SinglePlayerManager : MonoBehaviour {
         _interfaceController.ShowGameOverScreen(true);
     }
 
-    public void RestartGame() {
+    public virtual void RestartGame() {
         //hide game over image
         _interfaceController.ShowGameOverScreen(false);
 
