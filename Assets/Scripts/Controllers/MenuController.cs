@@ -2,14 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.Search;
 
 public class MenuController : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private GameObject _mainScreen, _loadingScreen;
-    [SerializeField] private Slider _loadingSlider;
+    [SerializeField] private GameObject _mainScreen, _loadingScreen, _settingsScreen;
+    [SerializeField] private Slider _loadingSlider, _masterVolume, _musicVolume, _effectsVolume;
     [SerializeField] private Text _loadingProgressText;
-    [SerializeField] private GameObject _plane;
+    [SerializeField] private GameObject _arrow;
 
 
     // --- Functions ---
@@ -37,14 +38,23 @@ public class MenuController : MonoBehaviour {
         _loadingScreen.SetActive(true);
     }
 
+    public void ShowSettingsScreen() {
+        _mainScreen.SetActive(false);
+        _settingsScreen.SetActive(true);
+    }
+
+    public void BackToMainScreen() {
+        _settingsScreen.SetActive(false);
+        _mainScreen.SetActive(true);
+    }
+
+
     public void PutPlaneOnButton(Button button) {
-
         Vector3 planePosition = Vector3.zero;
-        planePosition.x = _plane.transform.position.x;
+        planePosition.x = _arrow.transform.position.x;
         planePosition.y = button.gameObject.transform.position.y;
-        print(planePosition);
 
-        _plane.transform.SetPositionAndRotation(planePosition, Quaternion.identity);
+        _arrow.transform.SetPositionAndRotation(planePosition, Quaternion.identity);
     }
 
 }
