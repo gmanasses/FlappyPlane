@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class InterfaceController : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private GameObject _gameOverScreen;
+    [SerializeField] private GameObject _gameOverScreen, _pauseScreen;
     [SerializeField] private Image _medal;
     [SerializeField] private Sprite _bronzeMedal, _silverMedal, _goldMedal;
     [SerializeField] private Text _gameplayScoreValue, _gameoverScoreValue, _gameoverRecordValue;
@@ -22,6 +22,17 @@ public class InterfaceController : MonoBehaviour {
     public void ShowGameOverScreen(bool active) {
         _gameplayScoreValue.gameObject.SetActive(!active);
         _gameOverScreen.SetActive(active);
+    }
+
+    public void ShowPauseScreen(bool active) {
+        if(active) {
+            Time.timeScale = 0;
+
+        } else {
+            Time.timeScale = 1;
+        }
+
+        _pauseScreen.SetActive(active);
     }
 
     public void UpdateScore(int score) {

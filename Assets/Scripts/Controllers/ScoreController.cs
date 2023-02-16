@@ -10,13 +10,11 @@ public class ScoreController : MonoBehaviour {
     // --- Private Declarations ---
     [SerializeField] private Text _scoreText;
     [SerializeField] private UnityEvent _whenScoring;
-    private AudioSource _scoreSound;
     private InterfaceController _interfaceController;
 
 
     // --- Core Functions ---
     private void Awake() {
-        _scoreSound = this.GetComponent<AudioSource>();
         Score = 0;
     }
 
@@ -29,7 +27,7 @@ public class ScoreController : MonoBehaviour {
     public void AddScore() {
         Score++;
 
-        _scoreSound.Play();
+        SoundManager.Instance.PlayEffect("Score");
 
         _interfaceController.UpdateScore(Score);
 
