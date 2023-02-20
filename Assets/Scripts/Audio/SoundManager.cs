@@ -93,5 +93,3 @@ public class Sound {
     public AudioClip Clip;
 
 }
-
-// gear icon --> < a href = "https://www.flaticon.com/free-icons/settings" title = "settings icons" > Settings icons created by Gregor Cresnar Premium - Flaticon</a>
